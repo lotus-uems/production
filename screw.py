@@ -1,8 +1,8 @@
 import math
 
-from .production import *
+from . import production
     
-class ScrewProduction(Production):
+class ScrewProduction(production.Production):
     
     Crew_DB = {
         'М3' : {

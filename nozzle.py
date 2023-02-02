@@ -1,8 +1,8 @@
 import math
 
-from .production import *
+from . import production
     
-class NozzleProduction(Production):
+class NozzleProduction(production.Production):
     
     MX_DB = {
         100 : {

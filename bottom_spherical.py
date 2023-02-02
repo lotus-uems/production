@@ -1,9 +1,9 @@
 import math
 
-import STHE.Production.DB_production as DB
-from .production import *
+from . import DB_production as DB
+from . import production
     
-class BottomSphericalProduction(Production):
+class BottomSphericalProduction(production.Production):
     
     def __init__(self, D, Th, steel, petals, lotus=0):
         self.name = 'Днище (сферическое)'

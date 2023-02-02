@@ -1,8 +1,8 @@
 import math
 
-from .production import *
+from . import production
     
-class CapProduction(Production):
+class CapProduction(production.Production):
     
     Cap_DB = {
         30 : {

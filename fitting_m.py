@@ -1,10 +1,11 @@
 import math
 
-import STHE.Production.DB_production as DB
-from .production import *
-from .shell_30_mm import *
+from . import DB_production as DB
+from . import production
+
+from . import shell_30_mm
     
-class FittingMProduction(Production):
+class FittingMProduction(production.Production):
     
     def __init__(self, shell_Th, shell_D_in, shell_H, ribs, D, D_in, flange_Th, gussets, gussets_Th, steel, lotus=0):
         self.name = 'Штуцер монтажный'
@@ -201,7 +202,7 @@ class FittingMProduction(Production):
         shell_parts = 1
         if self.shell_D_in > 2000:
             shell_parts = 2
-        shell1 = ShellProduction_30_mm(D=self.shell_D_in, H=self.shell_H, Th=self.shell_Th, steel=self.steel, parts=shell_parts, lotus=0)
+        shell1 = shell_30_mm.ShellProduction_30_mm(D=self.shell_D_in, H=self.shell_H, Th=self.shell_Th, steel=self.steel, parts=shell_parts, lotus=0)
         shell1.calc_hours()
         shells_hours += shell1.total_hours
         self.elements.append(shell1)

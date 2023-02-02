@@ -1,8 +1,8 @@
 import math
 
-from .production import *
+from . import production
     
-class PinProduction(Production):
+class PinProduction(production.Production):
     
     Pin_DB = {
         'М12' : {

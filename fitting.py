@@ -1,11 +1,12 @@
 import math
 
-import STHE.Production.DB_production as DB
-from .production import *
-from .flange import *
-from .nozzle import *
+from . import DB_production as DB
+from . import production
+
+from . import flange
+from . import nozzle
     
-class FittingProduction(Production):
+class FittingProduction(production.Production):
     
     def __init__(self, D_in, Th, flange_D_in, nozzle_D_in, nozzle_H, steel, lotus=0):
         self.name = 'Штуцер (фланец + патрубок)'
@@ -73,12 +74,12 @@ class FittingProduction(Production):
         self.total_hours = sum([i[1] for i in self.hours.values()])
         
         # Расчет фланца
-        flange1 = FlangeProduction(self.flange_D_in, 0)
+        flange1 = flange.FlangeProduction(self.flange_D_in, 0)
         flange1.calc_hours()
         self.elements.append(flange1)
         
         # Расчет патрубка
-        nozzle1 = NozzleProduction(self.nozzle_D_in, self.nozzle_H, 0)
+        nozzle1 = nozzle.NozzleProduction(self.nozzle_D_in, self.nozzle_H, 0)
         nozzle1.calc_hours()
         if self.D_in < 200:
             for i in nozzle1.hours.keys():

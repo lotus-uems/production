@@ -1,8 +1,8 @@
 import math
 
-from .production import *
+from . import production
     
-class FlangeProduction(Production):
+class FlangeProduction(production.Production):
     
     MX_DB = {
         19 : 0.69,

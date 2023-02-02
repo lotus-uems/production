@@ -1,9 +1,9 @@
 import math
 
-import STHE.Production.DB_production as DB
-from .production import *
+from . import DB_production as DB
+from . import production
     
-class ShellProduction(Production):
+class ShellProduction(production.Production):
     
     def __init__(self, D, H, Th, steel, parts, lotus=0):
         self.name = 'Обечайка'

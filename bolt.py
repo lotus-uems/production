@@ -1,8 +1,8 @@
 import math
 
-from .production import *
+from . import production
     
-class BoltProduction(Production):
+class BoltProduction(production.Production):
     
     Bolt_DB = {
         'М10' : {

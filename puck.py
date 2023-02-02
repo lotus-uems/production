@@ -1,8 +1,8 @@
 import math
 
-from .production import *
+from . import production
     
-class PuckProduction(Production):
+class PuckProduction(production.Production):
     
     Puck_DB = {
         'М3' : 0.012,

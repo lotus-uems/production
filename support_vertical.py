@@ -1,11 +1,12 @@
 import math
 
-import STHE.Production.DB_production as DB
-from .production import *
-from .shell import *
-from .ring import *
+from . import DB_production as DB
+from . import production
+
+from . import shell
+from . import ring
     
-class SupportVerticalProduction(Production):
+class SupportVerticalProduction(production.Production):
     
     def __init__(self, D, H_celind, windows, ribs_on_rings, covers, mass_internal, Th, steel, D_ring, D_in_ring, ring_parts, ring_Th, lotus=0):
         self.name = 'Опора вертикальная'
@@ -141,7 +142,7 @@ class SupportVerticalProduction(Production):
             shell_parts = 1
             if self.D > 2000:
                 shell_parts = 2
-            shell1 = ShellProduction(self.D, B7, self.Th, self.steel, shell_parts, 0)
+            shell1 = shell.ShellProduction(self.D, B7, self.Th, self.steel, shell_parts, 0)
             shell1.calc_hours()
             shells_hours += shell1.total_hours
             self.elements.append(shell1)
@@ -152,7 +153,7 @@ class SupportVerticalProduction(Production):
         shells_hours = 0
         for i in self.windows:
             shell_parts = 1
-            shell1 = ShellProduction(i, 1000, self.Th, self.steel, shell_parts, 0)
+            shell1 = shell.ShellProduction(i, 1000, self.Th, self.steel, shell_parts, 0)
             shell1.calc_hours()
             shells_hours += shell1.total_hours
             self.elements.append(shell1)
@@ -162,7 +163,7 @@ class SupportVerticalProduction(Production):
         # Расчет колец
         rings_hours = 0
         for i in self.windows:
-            ring1 = RingProduction(self.D_in_ring, self.D_ring, self.ring_Th, self.steel, self.ring_parts, 0)
+            ring1 = ring.RingProduction(self.D_in_ring, self.D_ring, self.ring_Th, self.steel, self.ring_parts, 0)
             ring1.calc_hours()
             rings_hours += ring1.total_hours
             self.elements.append(ring1)
