@@ -1,3 +1,4 @@
+import copy
 class Production():
     
     OPERATIONS = {
@@ -113,3 +114,9 @@ class Production():
                 i[1] = value
                 return True
         return False
+
+    def hours_description(self):
+        hours = copy.deepcopy(self.hours)
+        for i in hours.keys():
+            hours[i][0] = self.OPERATIONS[hours[i][0]][0]
+        return hours
