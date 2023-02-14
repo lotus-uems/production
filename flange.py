@@ -84,7 +84,7 @@ class FlangeProduction(production.Production):
     def find_nearest_KZ(self):
         for i in self.KZ_DB.keys():
             i_prev = i
-            if i > self.D_in:
+            if i > self.D_in + 10:
                 return self.KZ_DB[i_prev]
         return False
                 
